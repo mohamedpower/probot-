@@ -6,8 +6,13 @@ const client = new Discord.Client();
 const Canvas = require("canvas"); 
 const prefix = "+"
 const id = JSON.parse(fs.readFileSync("./id/rank.json", "utf8"));
-
-
+cconst fs = require('fs'); // npm i fs
+const ms = require('ms'); // npm i ms
+const cool = [];
+client.on('message',async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === 'dm') return;
+ 
   const args = message.content.split(' ');
   const credits = require('./credits.json');
   const path = './credits.json';
