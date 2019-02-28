@@ -4,7 +4,7 @@ const fs = require("fs");
 const dateFormat = require('dateformat');
 const client = new Discord.Client(); 
 const Canvas = require("canvas"); 
-const prefix = "+"
+const prefix = "#"
 const id = JSON.parse(fs.readFileSync("./id/rank.json", "utf8"));
 
 let banse = new Set();
@@ -1418,23 +1418,6 @@ client.on('message', message => {
 
 message.author.sendMessage(`
 **
-╭━━━╮╱╱╱╱╭━━╮╱╱╱╭╮
-┃╭━╮┃╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-┃╰━╯┣━┳━━┫╰╯╰┳━┻╮╭╯
-┃╭━━┫╭┫╭╮┃╭━╮┃╭╮┃┃
-┃┃╱╱┃┃┃╰╯┃╰━╯┃╰╯┃╰╮
-╰╯╱╱╰╯╰━━┻━━━┻━━┻━╯
-
-[❖═════ لتشغيل اللوق Log يجب وجود روم باسم ═══════❖]
-
-[❖═════════════════════════════❖]
-        لماذا بروبوت ؟
-1- :rocket: سرعه اتصال ممتازه
-2- :beginner: سهل الاستخدام
-3- :warning: صيانه يوميه
-4- :money_with_wings: مجاني بالكامل
-5- :shield: يحتوي على مانع اختراق سيرفرات للحفاظ على امان سيرفرك
-6- :musical_note: يحتوي على خاصيه ميوزك بجوده عاليه
 [❖═════════════════════════════❖]
 
 الاوامر العامة
