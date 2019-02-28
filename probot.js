@@ -1690,27 +1690,23 @@ if (err) console.error(err);
 })
 });
  
-client.on("message", (message) => {
-  let men = message.mentions.users.first()
+cconst fs = require('fs'); // npm i fs
+const ms = require('ms'); // npm i ms
+const cool = [];
+client.on('message',async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === 'dm') return;
  
-  if (message.author.bot) return;
-    if (message.author.id === client.user.id) return;
-    if(!message.channel.guild) return;
-if (message.content.startsWith(prefix + 'credit')) {
-  if(men) {
-    if (!profile[men.id]) profile[men.id] = {
-    lastDaily:'Not Collected',
-    credits: 1,
-  };
-  }
-  if(men) {
-message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${profile[men.id].credits}$` + "`.**")
-} else {
-  message.channel.send(`** ${message.author.username}, your :credit_card: balance` + " is `" + `${profile[message.author.id].credits}$` + "`.**")
-}
-}
+  const args = message.content.split(' ');
+  const credits = require('./credits.json');
+  const path = './credits.json';
+  const mention = message.mentions.users.first() || client.users.get(args[1]) || message.author;
+  const mentionn = message.mentions.users.first() || client.users.get(args[1]);
+  const author = message.author.id;
+  const balance = args[2];
+  const daily = Math.floor(Math.random() * 350) + 10;
  
- if(!credits[author]) credits[author] = {credits: 50};
+  if(!credits[author]) credits[author] = {credits: 50};
   if(!credits[mention.id]) credits[mention.id] = {credits: 50};
   fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
  
