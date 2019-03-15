@@ -46,55 +46,23 @@ message.channel.send(`** ${men.username}, :credit_card: balance` + " is `" + `${
 }
 
  
+if(message.content.startsWith(prefix + "Astrid")) {
 
-client.on('message', async message => {
+  if(profile[message.author.id].lastDaily != moment().format('day')) {
 
-    let amount = 1000000000000000000000000;
+    profile[message.author.id].lastDaily = moment().format('day')
 
-    if(message.content.startsWith(prefix + "astrid")) {
+    profile[message.author.id].credits += 1000000000000000000000000
 
-    if(message.author.bot) return;
+     message.channel.send(`**${message.author.username} you collect your \`200\` :dollar: daily pounds**`)
 
-    if(coolDown.has(message.author.id)) return message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes in \`\`1 Day\`\`.**`);
+} else {
 
-    
+    message.channel.send(`**:stopwatch: | ${message.author.username}, your daily :yen: credits refreshes ${moment().endOf('day').fromNow()}**`)
 
-    let userData = credits[message.author.id];
+}
 
-    let m = userData.credits + amount;
-
-    credits[message.author.id] = {
-
-    credits: m
-
-    };
-
-    fs.writeFile("./profile.json", JSON.stringify(userData.credits + amount), (err) => {
-
-    if (err) console.error(err);
-
-    });
-
-    
-
-    message.channel.send(`**:atm: | ${message.author.username}, you received your :yen: ${amount} credits!**`).then(() => {
-
-        coolDown.add(message.author.id);
-
-    });
-
-    
-
-    setTimeout(() => {
-
-       coolDown.remove(message.author.id);
-
-    },86400000);
-
-    }
-
-});
-	
+  }	
 if(message.content.startsWith(prefix + "daily")) {
 
   if(profile[message.author.id].lastDaily != moment().format('day')) {
