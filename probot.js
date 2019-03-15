@@ -82,7 +82,7 @@ if(message.content.startsWith(prefix + 'trans')) {
 
         // We should also make sure that args[0] is a number
 
-        if (isNaN(args[0])) {
+        if (isNaN(args[1])) {
 
             message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
 
