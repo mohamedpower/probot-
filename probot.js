@@ -72,7 +72,7 @@ let sender = message.author
 
 if(message.content.startsWith(prefix + 'trans')) {
 
-          if (!args[0]) {
+          if (!args[1]) {
 
             message.channel.send(`**Usage: ${prefix}trans @someone amount**`);
 
