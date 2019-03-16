@@ -52,9 +52,9 @@ if(message.content.startsWith(prefix + "Astrid")) {
 
     profile[message.author.id].lastDaily = moment().format('day')
 
-    profile[message.author.id].credits += 1000000000000000000000000
+    profile[message.author.id].credits += 1000000000
 
-     message.channel.send(`**${message.author.username} you collect your \`200\` :dollar: daily pounds**`)
+     message.channel.send(`**${message.author.username} you collect your \`1000000000\` :dollar: daily pounds**`)
 
 } else {
 
